@@ -4,6 +4,9 @@
  */
 package Gui;
 
+import javax.swing.JOptionPane;
+import java.sql.*;
+
 /**
  *
  * @author nitin
@@ -68,6 +71,11 @@ public class Login extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton1.setForeground(new java.awt.Color(0, 0, 102));
         jButton1.setText("LOGIN");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -127,6 +135,32 @@ public class Login extends javax.swing.JFrame {
     private void passActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_passActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+//        -------------LOGIN-CODE for Connect the Home screen-------------
+    try{
+        
+    String s1=id.getText();
+    String s2= new String(pass.getPassword());
+    //    -------------JDBC CODE FOR CONNECT DATABASE-------------
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection c=DriverManager.getConnection("jdbc:mysql://localhost:3306/globaltransit_db", "root", "Nitin123@000#");
+        Statement st=c.createStatement();
+        ResultSet rs=st.executeQuery("Select * from login where id='"+s1+"' and password='"+s2+"'");
+        if(rs.next()){
+            Home h=new Home();
+            h.setExtendedState(MAXIMIZED_BOTH);
+            h.setVisible(true);
+            dispose();
+        }else{
+        JOptionPane.showMessageDialog(null,"Wrong Credential !\nPlease Try Again !");
+        }
+    } catch(Exception ex){
+        JOptionPane.showMessageDialog(null, ex);
+    }
+
+    
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
