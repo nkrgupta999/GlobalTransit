@@ -68,14 +68,14 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jButton1" max="32767" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="id" min="-2" pref="168" max="-2" attributes="0"/>
+                          <Component id="login_id" min="-2" pref="168" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jTextField1" max="32767" attributes="0"/>
+                          <Component id="id" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="password" min="-2" pref="168" max="-2" attributes="0"/>
+                          <Component id="pass" min="-2" pref="168" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="pass" max="32767" attributes="0"/>
+                          <Component id="p" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -87,13 +87,13 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="id" linkSize="6" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
-                      <Component id="jTextField1" linkSize="6" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="login_id" linkSize="6" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
+                      <Component id="id" linkSize="6" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="password" min="-2" pref="44" max="-2" attributes="0"/>
-                      <Component id="pass" linkSize="6" min="-2" max="-2" attributes="0"/>
+                      <Component id="pass" min="-2" pref="44" max="-2" attributes="0"/>
+                      <Component id="p" linkSize="6" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                   <Component id="jButton1" min="-2" max="-2" attributes="0"/>
@@ -103,7 +103,7 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="password">
+        <Component class="javax.swing.JLabel" name="pass">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="1"/>
@@ -114,7 +114,7 @@
             <Property name="text" type="java.lang.String" value="Password : "/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="id">
+        <Component class="javax.swing.JLabel" name="login_id">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="1"/>
@@ -125,7 +125,7 @@
             <Property name="text" type="java.lang.String" value="LoginID : "/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField1">
+        <Component class="javax.swing.JTextField" name="id">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="14" style="3"/>
@@ -136,7 +136,7 @@
             <Property name="horizontalAlignment" type="int" value="0"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JPasswordField" name="pass">
+        <Component class="javax.swing.JPasswordField" name="p">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="14" style="3"/>
@@ -147,7 +147,7 @@
             <Property name="horizontalAlignment" type="int" value="0"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="passActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jButton1">
