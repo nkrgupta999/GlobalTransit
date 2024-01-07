@@ -5,6 +5,27 @@ public class Login extends javax.swing.JFrame {
     public Login() {
         initComponents();
     }
+    private void login(){
+        //        -------------LOGIN-CODE for Connect the Home screen-------------
+        try{
+        
+        String s1=id.getText();
+        String s2= new String(p.getPassword());
+    
+        
+        ResultSet rs=db.DbConnect.st.executeQuery("select * from login where id='"+s1+"' and password='"+s2+"'");
+        if(rs.next()){
+            Home h=new Home();
+            h.setExtendedState(MAXIMIZED_BOTH);
+            h.setVisible(true);
+            dispose();
+        }else{
+        JOptionPane.showMessageDialog(null,"Wrong Credential !\nPlease Try Again !");
+        }
+    }catch(Exception ex){
+        JOptionPane.showMessageDialog(null,ex);
+    }
+    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -114,33 +135,13 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void pActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pActionPerformed
-        // TODO add your handling code here:
+//        For Pressing Enter after fill the deatils of Login
+        login();
     }//GEN-LAST:event_pActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 //        -------------LOGIN-CODE for Connect the Home screen-------------
-    try{
-        
-    String s1=id.getText();
-    String s2= new String(p.getPassword());
-    //    -------------JDBC CODE FOR CONNECT DATABASE-------------
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection c=DriverManager.getConnection("jdbc:mysql://localhost:3306/globaltransit_db", "root", "Nitin123@000#");
-        Statement st=c.createStatement();
-        ResultSet rs=st.executeQuery("select * from login where id='"+s1+"' and password='"+s2+"'");
-        if(rs.next()){
-            Home h=new Home();
-            h.setExtendedState(MAXIMIZED_BOTH);
-            h.setVisible(true);
-            dispose();
-        }else{
-        JOptionPane.showMessageDialog(null,"Wrong Credential !\nPlease Try Again !");
-        }
-    } catch(Exception ex){
-        JOptionPane.showMessageDialog(null, ex);
-    }
-
-    
+    login(); 
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
