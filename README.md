@@ -41,4 +41,14 @@ Global Transit is a vehicle management system developed using Java and NetBeans 
 5. Push to the branch (e.g. `git push origin my-new-feature`)
 6. Create a new pull request
 
+## Disclaimer
+
+Please note that the information contained in this repository is provided for informational purposes only. We make no representations or warranties of any kind, express or implied, about the completeness, accuracy, reliability, suitability, or availability with respect to the information contained in this repository for any purpose. Any reliance on such information is therefore strictly at your own risk.
+
+
+## LinkedIn
+https://www.linkedin.com/in/nkrgupta999
+
+## Connect 
+https://linktr.ee/nkrgupta999
 
