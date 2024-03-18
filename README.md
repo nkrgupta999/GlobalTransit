@@ -52,3 +52,10 @@ https://www.linkedin.com/in/nkrgupta999
 ## Connect 
 https://linktr.ee/nkrgupta999
 
+## MIT License
+
+[Copyright (c) 2024 Nitin Kumar Gupta](LICENSE)
+
+
+## Code of Conduct
+[Terms and Conditions](Code_of_Conduct.md)
