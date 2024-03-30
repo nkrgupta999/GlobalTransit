@@ -4,6 +4,9 @@
  */
 package Gui;
 
+import java.sql.ResultSet;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author nitin
@@ -15,6 +18,27 @@ public class Home extends javax.swing.JFrame {
      */
     public Home() {
         initComponents();
+        //GET ALL DATA / VALUES FROM DATABASE (DRIVER) FOR DRIVER COMBO-BOX
+        try {
+            ResultSet rs = db.DbConnect.st.executeQuery("Select * from driver");
+            while (rs.next()) {
+                String n = rs.getString("name");
+                String p = rs.getString("phone");
+                d.addItem(n + "-" + p);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        //GET ALL DATA / VALUES FROM DATABASE (VEHICLE) FOR VEHICLE COMBO-BOX
+        try {
+            ResultSet rs = db.DbConnect.st.executeQuery("Select * from vehicle");
+            while (rs.next()) {
+                String n = rs.getString("v_no");
+                v.addItem(n);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
     }
 
     /**
