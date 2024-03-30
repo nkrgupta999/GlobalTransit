@@ -18,6 +18,7 @@ public class Driver extends javax.swing.JFrame {
      */
     public Driver() {
         initComponents();
+        getEntries();
     }
     private void getEntries() {
         javax.swing.table.DefaultTableModel dtm = (javax.swing.table.DefaultTableModel) jTable1.getModel();
@@ -216,7 +217,20 @@ public class Driver extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        // Delete code here:
+        try {
+            int ri=jTable1.getSelectedRow();
+            if(ri==-1){
+                JOptionPane.showMessageDialog(null, "Please Select Driver !");
+            }else{
+            String p=(String)jTable1.getValueAt(ri,0);
+            db.DbConnect.st.executeUpdate("delete from driver where phone='" + p + "'");
+            JOptionPane.showMessageDialog(null, "Vehicle Delete Successfully");
+            getEntries();
+            }
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
