@@ -49,11 +49,11 @@ public class Login extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 102));
 
-        pass.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        pass.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         pass.setForeground(new java.awt.Color(255, 255, 255));
         pass.setText("Password : ");
 
-        login_id.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        login_id.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         login_id.setForeground(new java.awt.Color(255, 255, 255));
         login_id.setText("LoginID : ");
 
@@ -70,7 +70,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jButton1.setFont(new java.awt.Font("Times New Roman", 3, 20)); // NOI18N
         jButton1.setForeground(new java.awt.Color(0, 0, 102));
         jButton1.setText("LOGIN");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
