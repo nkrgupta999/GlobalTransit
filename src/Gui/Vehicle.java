@@ -117,7 +117,7 @@ public class Vehicle extends javax.swing.JFrame {
         dd = new javax.swing.JComboBox<>();
         jButton3 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Vehicle");
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
