@@ -78,7 +78,7 @@ public class Driver extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Driver");
+        setTitle("Global Transit | Driver");
 
         jPanel1.setBackground(new java.awt.Color(255, 102, 0));
 
