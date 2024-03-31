@@ -5,6 +5,8 @@
 package Gui;
 
 import java.sql.ResultSet;
+import java.util.HashMap;
+import java.util.StringTokenizer;
 import javax.swing.JOptionPane;
 
 /**
@@ -16,25 +18,18 @@ public class Home extends javax.swing.JFrame {
     /**
      * Creates new form Home
      */
+    
+    HashMap vehicleDriver= new HashMap();
+    
     public Home() {
         initComponents();
-        //GET ALL DATA / VALUES FROM DATABASE (DRIVER) FOR DRIVER COMBO-BOX
-        try {
-            ResultSet rs = db.DbConnect.st.executeQuery("Select * from driver");
-            while (rs.next()) {
-                String n = rs.getString("name");
-                String p = rs.getString("phone");
-                d.addItem(n + "-" + p);
-            }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-        }
         //GET ALL DATA / VALUES FROM DATABASE (VEHICLE) FOR VEHICLE COMBO-BOX
         try {
             ResultSet rs = db.DbConnect.st.executeQuery("Select * from vehicle");
             while (rs.next()) {
                 String n = rs.getString("v_no");
                 v.addItem(n);
+                vehicleDriver.put(n, rs.getString("driver_name")+" - "+rs.getString("driver_number"));
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
@@ -55,10 +50,10 @@ public class Home extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         v = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
-        d = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
         p = new javax.swing.JTextField();
         jToggleButton1 = new javax.swing.JToggleButton();
+        d = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Global Transit | HOME");
@@ -71,6 +66,12 @@ public class Home extends javax.swing.JFrame {
         jLabel1.setText("Travelling");
 
         jLabel2.setText("Vehicle No. :");
+
+        v.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                vActionPerformed(evt);
+            }
+        });
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Driver");
@@ -85,6 +86,18 @@ public class Home extends javax.swing.JFrame {
         });
 
         jToggleButton1.setText("Submit");
+        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton1ActionPerformed(evt);
+            }
+        });
+
+        d.setEditable(false);
+        d.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -93,20 +106,21 @@ public class Home extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jToggleButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(v, 0, 192, Short.MAX_VALUE)
-                            .addComponent(d, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(p, javax.swing.GroupLayout.Alignment.TRAILING)))
-                    .addComponent(jToggleButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(v, javax.swing.GroupLayout.Alignment.LEADING, 0, 220, Short.MAX_VALUE)
+                                    .addComponent(p)
+                                    .addComponent(d, javax.swing.GroupLayout.Alignment.LEADING))))
+                        .addContainerGap())))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -118,7 +132,7 @@ public class Home extends javax.swing.JFrame {
                     .addComponent(jLabel2)
                     .addComponent(v, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
                     .addComponent(d, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -139,7 +153,7 @@ public class Home extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(436, Short.MAX_VALUE))
+                .addContainerGap(402, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -154,6 +168,38 @@ public class Home extends javax.swing.JFrame {
     private void pActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_pActionPerformed
+
+    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+        // Add Travelling Detail
+        try {
+            String v_no = (String) v.getSelectedItem();
+            String s = d.getText();
+            StringTokenizer st = new StringTokenizer(s, "-");
+            String d_name = st.nextToken();
+            String d_phone = st.nextToken();
+            String place = p.getText();
+
+            db.DbConnect.st.executeUpdate("insert into travel_info (v_no,driver_name,driver_phone,travel_date,place) values('" + v_no + "','" + d_name + "','" + d_phone + "',CURRENT_DATE,'" + place + "')");
+            JOptionPane.showMessageDialog(null, "Travelling Entry Added Successfully");
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+    }//GEN-LAST:event_jToggleButton1ActionPerformed
+
+    private void dActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dActionPerformed
+
+    private void vActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vActionPerformed
+        // Automatic Driver information print Code:
+        try {
+            String v_no = (String) v.getSelectedItem();
+            String s=(String)vehicleDriver.get(v_no);
+            d.setText(s);
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+    }//GEN-LAST:event_vActionPerformed
 
     /**
      * @param args the command line arguments
@@ -191,7 +237,7 @@ public class Home extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> d;
+    private javax.swing.JTextField d;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
