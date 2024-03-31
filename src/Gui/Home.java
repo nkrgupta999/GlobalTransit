@@ -258,7 +258,7 @@ public class Home extends javax.swing.JFrame {
 
         jMenu2.setText("More");
 
-        jMenuItem4.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_ESCAPE, java.awt.event.InputEvent.ALT_DOWN_MASK));
+        jMenuItem4.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_ESCAPE, 0));
         jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Extrafiles/logout.png"))); // NOI18N
         jMenuItem4.setText("LogOut");
         jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
