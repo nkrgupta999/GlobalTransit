@@ -390,7 +390,7 @@ public class Home extends javax.swing.JFrame {
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
         // About App (HOME MENU BAR):
-        JOptionPane.showMessageDialog(null, "designed and Developed by Nitin Kumar Gupta (nkrgupta999)");
+        JOptionPane.showMessageDialog(null, "Welcome to Global Transit, your one-stop solution for efficient and seamless management of various types of vehicles \nWith the Global Transit Vehicle Management System, users can effortlessly track vehicle details such as \nVehicle No., Vehicle Type, Driver name, Driver License No. Place, and more \nIf you have any questions or suggestions regarding the application, feel free to contact us at nitinkumargupta999@gmail.com. \n-Nitin Kumar Gupta");
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
