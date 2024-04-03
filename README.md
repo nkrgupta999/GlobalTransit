@@ -15,7 +15,7 @@ Global Transit is a vehicle management system developed using Java and NetBeans 
 
 1. **Clone the Repository**: 
    ```bash
-   git clone https://github.com/your-username/Global-Transit.git
+   git clone https://github.com/nkrgupta999/GlobalTransit.git
 
 2. **Import Project into NetBeans:**
    
@@ -37,7 +37,7 @@ Global Transit is a vehicle management system developed using Java and NetBeans 
 1. Fork the repository
 2. Create a new branch for your changes (e.g. `git checkout -b my-new-feature`)
 3. Make your changes
-4. Commit your changes (e.g. `git commit -am 'Added a new table for XYZ University'`)
+4. Commit your changes (e.g. `git commit -am 'Added a new table for XYZ '`)
 5. Push to the branch (e.g. `git push origin my-new-feature`)
 6. Create a new pull request
 
