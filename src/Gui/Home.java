@@ -32,7 +32,7 @@ public class Home extends javax.swing.JFrame {
                 vehicleDriver.put(n, rs.getString("driver_name") + " - " + rs.getString("driver_number"));
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
+            JOptionPane.showMessageDialog(null, "Error");
         }
     }
 
