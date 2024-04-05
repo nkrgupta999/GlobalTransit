@@ -22,7 +22,21 @@ public class Home extends javax.swing.JFrame {
 
     public Home() {
         initComponents();
+        loadVehicleDetails();
         //GET ALL DATA / VALUES FROM DATABASE (VEHICLE) FOR VEHICLE COMBO-BOX
+//        try {
+//            ResultSet rs = db.DbConnect.st.executeQuery("Select * from vehicle");
+//            while (rs.next()) {
+//                String n = rs.getString("v_no");
+//                v.addItem(n);
+//                vv.addItem(n);
+//                vehicleDriver.put(n, rs.getString("driver_name") + " - " + rs.getString("driver_number"));
+//            }
+//        } catch (Exception e) {
+//            JOptionPane.showMessageDialog(null, "Error");
+//        }
+    }
+    private void loadVehicleDetails() {
         try {
             ResultSet rs = db.DbConnect.st.executeQuery("Select * from vehicle");
             while (rs.next()) {
@@ -63,9 +77,9 @@ public class Home extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem4 = new javax.swing.JMenuItem();
@@ -230,16 +244,6 @@ public class Home extends javax.swing.JFrame {
 
         jMenu1.setText("Operations");
 
-        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, java.awt.event.InputEvent.ALT_DOWN_MASK));
-        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Extrafiles/Vehicle.png"))); // NOI18N
-        jMenuItem1.setText("Add Vehicle");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jMenuItem1);
-
         jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.ALT_DOWN_MASK));
         jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Extrafiles/category.png"))); // NOI18N
         jMenuItem2.setText("Add Category");
@@ -259,6 +263,16 @@ public class Home extends javax.swing.JFrame {
             }
         });
         jMenu1.add(jMenuItem3);
+
+        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, java.awt.event.InputEvent.ALT_DOWN_MASK));
+        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Extrafiles/Vehicle.png"))); // NOI18N
+        jMenuItem1.setText("Add Vehicle");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem1);
 
         jMenuItem6.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F9, java.awt.event.InputEvent.ALT_DOWN_MASK));
         jMenuItem6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Extrafiles/exit.png"))); // NOI18N
@@ -371,7 +385,7 @@ public class Home extends javax.swing.JFrame {
                 String p = rs.getString("place");
                 String dn = rs.getString("driver_name");
                 String dp = rs.getString("driver_phone");
-                jTextArea1.append(d+" : "+p+"\n"+dn+" - "+dp+"\n"+"------------------------------------------------"+"\n");
+                jTextArea1.append(d + " : " + p + "\n" + dn + " - " + dp + "\n" + "------------------------------------------------" + "\n");
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
