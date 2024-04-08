@@ -22,21 +22,7 @@ public class Home extends javax.swing.JFrame {
 
     public Home() {
         initComponents();
-        loadVehicleDetails();
         //GET ALL DATA / VALUES FROM DATABASE (VEHICLE) FOR VEHICLE COMBO-BOX
-//        try {
-//            ResultSet rs = db.DbConnect.st.executeQuery("Select * from vehicle");
-//            while (rs.next()) {
-//                String n = rs.getString("v_no");
-//                v.addItem(n);
-//                vv.addItem(n);
-//                vehicleDriver.put(n, rs.getString("driver_name") + " - " + rs.getString("driver_number"));
-//            }
-//        } catch (Exception e) {
-//            JOptionPane.showMessageDialog(null, "Error");
-//        }
-    }
-    private void loadVehicleDetails() {
         try {
             ResultSet rs = db.DbConnect.st.executeQuery("Select * from vehicle");
             while (rs.next()) {
